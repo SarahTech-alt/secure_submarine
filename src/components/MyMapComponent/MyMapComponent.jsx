@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, InfoWindow, LoadScript, Marker } from '@react-google-maps/api';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useReduxStore from '../../hooks/useReduxStore';
+
+
+
 
 
 
@@ -19,45 +22,53 @@ const center = {
 const onLoad = marker => {
   console.log('marker: ', marker)
 }
+
+
 function MyComponent() {
   const store = useReduxStore();
   const dispatch = useDispatch();
 
-  const viewLogDetails = () => {
+  const toggleInfo = () => {
     
   }
 
 
+
   useEffect(() => {
     console.log('component did mount');
-    dispatch({type:'FETCH_LOGS'})
-}, [dispatch]); 
+    dispatch({ type: 'FETCH_LOGS' })
+  }, [dispatch]);
 
   return (
     <>
-    
-    <LoadScript
-      googleMapsApiKey="AIzaSyAlWsZtJdgFmprccG6w4_32GNDvppdXdmo"
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
+      <LoadScript
+        googleMapsApiKey={process.env.GOOGLE_API_KEY}
       >
-        { /* Child components, such as markers, info windows, etc. */}
-        <>
-          {store.logs.map((coord, index) => (
-            <Marker key={index}
-              position={{ lat: coord.latitude, lng: coord.longitude }}
-              onLoad={onLoad}
-              onClick={event => viewLogDetails(index)}
-            />
-          ))}
-        </>
-      </GoogleMap>
-      
-    </LoadScript>
-   
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+        >
+          { /* Child components, such as markers, info windows, etc. */}
+          <>
+            {store.logs.map((coord, index) => (
+              <Marker key={index}
+                position={{ lat: coord.latitude, lng: coord.longitude }}
+                onLoad={onLoad}
+                onClick={toggleInfo}
+              >
+                {coord.displayed ?
+                  <InfoWindow
+                    position={{ lat: coord.latitude, lng: coord.longitude }}>
+                    <p>{coord.details}</p>
+                  </InfoWindow> :
+                  <></>
+                }
+              </Marker>
+            ))}
+          </>
+        </GoogleMap>
+      </LoadScript>
     </>
   )
 }
