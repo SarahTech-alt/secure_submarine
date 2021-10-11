@@ -39,9 +39,12 @@ function Nav() {
         )}
         <Link className="navLink" to='/maps'>
           Map
-          </Link>
+        </Link>
+        <Link className="navLink" to='/addImage'>
+          Add Image
+        </Link>
         <Link className="navLink" to="/about">
-        About
+          About
         </Link>
       </div>
     </div>

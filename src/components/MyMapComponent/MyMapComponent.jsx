@@ -42,7 +42,7 @@ function MyComponent() {
   return (
     <>
       <LoadScript
-        googleMapsApiKey={process.env.GOOGLE_API_KEY}
+        googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}
       >
         <GoogleMap
           mapContainerStyle={containerStyle}
