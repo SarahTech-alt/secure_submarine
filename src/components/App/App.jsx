@@ -19,7 +19,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SecretsPage from '../SecretsPage/SecretsPage';
-
+import MyMapComponent from '../MyMapComponent/MyMapComponent';
 import './App.css';
 
 function App() {
@@ -69,6 +69,9 @@ function App() {
             <SecretsPage />
           </ProtectedRoute>
 
+            <Route exact path='/maps'>
+              <MyMapComponent />
+              </Route>
           <Route
             exact
             path="/login"

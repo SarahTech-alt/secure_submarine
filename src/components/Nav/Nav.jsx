@@ -19,6 +19,7 @@ function Nav() {
           <Link className="navLink" to="/login">
             Login / Register
           </Link>
+
         }
 
         {/* If a user is logged in, show these links */}
@@ -28,6 +29,7 @@ function Nav() {
               Home
             </Link>
 
+
             <Link className="navLink" to="/secrets">
               Secrets Page
             </Link>
@@ -35,9 +37,11 @@ function Nav() {
             <LogOutButton className="navLink" />
           </>
         )}
-
+        <Link className="navLink" to='/maps'>
+          Map
+          </Link>
         <Link className="navLink" to="/about">
-          About
+        About
         </Link>
       </div>
     </div>
