@@ -1,0 +1,27 @@
+form {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-log {
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropzone{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 120px;
+        overflow: scroll;
+        margin: 0 auto;
+        position: relative;
+        box-sizing: border-box;
+        transition: all .15s linear;
+        border: 2px solid #d9d9d9;
+        border-radius: 4px;
+}
+

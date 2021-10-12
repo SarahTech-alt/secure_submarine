@@ -21,6 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import SecretsPage from '../SecretsPage/SecretsPage';
 import MyMapComponent from '../MyMapComponent/MyMapComponent';
 import AddImage from '../AddImage/AddImage';
+import LocationAndTimePage from '../LocationAndTimePage/LocationAndTimePage';
 import './App.css';
 
 function App() {
@@ -52,6 +53,9 @@ function App() {
           exact path = '/addImage'>
             <AddImage />
             </Route>
+            <Route exact path = '/locationAndTime'>
+              <LocationAndTimePage />
+              </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
